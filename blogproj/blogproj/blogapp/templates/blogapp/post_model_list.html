@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <ul>
+                {% for data in mylist %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-body">
+                            <h2><a href="{{data.id}}">{{ data.title }}</a></h2>
+                            <p>{{ data.description }}</p>
+                            {% if data.image %}
+                                <img src="{{data.image.url}}" alt="no img">
+                            {% endif %}
+                            <p>{{ data.date }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

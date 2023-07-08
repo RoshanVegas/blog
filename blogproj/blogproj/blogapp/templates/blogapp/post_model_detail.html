@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ post_models.title }}</h2>
+                        <p>{{ post_models.description }}</p>
+                            {% if post_models.image %}
+                                <img src="{{post_models.image.url}}" alt="no img">
+                            {% endif %}
+                        <p>{{ post_models.date }}</p>
+                    <a class="btn btn-warning" href="{% url 'blogapp:update' pk=post_models.pk %}">Update</a>
+                    <a class="btn btn-danger" href="{% url 'blogapp:delete' pk=post_models.pk %}">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
